@@ -31,7 +31,7 @@ function generateFloor(
     Array(width).fill(1),
   );
   const rooms: { x: number; y: number; w: number; h: number }[] = [];
-  const numRooms = 6;
+  const numRooms = 7;
 
   // ── place rooms ──
   let attempts = 0;
@@ -56,7 +56,33 @@ function generateFloor(
 
     rooms.push({ x, y, w, h });
   }
+  // ── sort rooms so first and last are as far apart as possible ──
+  if (rooms.length >= 2) {
+    // find the two rooms furthest apart
+    let maxDist = 0;
+    let farA = 0;
+    let farB = rooms.length - 1;
 
+    for (let i = 0; i < rooms.length; i++) {
+      for (let j = i + 1; j < rooms.length; j++) {
+        const dx = rooms[i].x + rooms[i].w / 2 - (rooms[j].x + rooms[j].w / 2);
+        const dy = rooms[i].y + rooms[i].h / 2 - (rooms[j].y + rooms[j].h / 2);
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > maxDist) {
+          maxDist = dist;
+          farA = i;
+          farB = j;
+        }
+      }
+    }
+
+    // swap so farA is first and farB is last
+    [rooms[0], rooms[farA]] = [rooms[farA], rooms[0]];
+    [rooms[rooms.length - 1], rooms[farB]] = [
+      rooms[farB],
+      rooms[rooms.length - 1],
+    ];
+  }
   // ── connect rooms with corridors ──
   for (let i = 0; i < rooms.length - 1; i++) {
     const a = rooms[i];
@@ -82,7 +108,7 @@ function generateFloor(
   };
 
   // ── stairs in last room ──
-  const isLastFloor = floorNum === 4;
+  const isLastFloor = floorNum === 19;
   map[last.y + 1][last.x + 1] = isLastFloor ? 9 : 3;
 
   // ── 5 chests in random middle rooms ──
@@ -103,14 +129,12 @@ function generateFloor(
   return { map, gruntPositions, playerStart };
 }
 
-export const generatedFloors = [
-  generateFloor(20, 20, 0),
-  generateFloor(20, 20, 1),
-  generateFloor(20, 20, 2),
-  generateFloor(20, 20, 3),
-  generateFloor(20, 20, 4),
-  generateFloor(20, 20, 5),
-];
+const generatedFloors = [];
+for (let i = 0; i < 20; i++) {
+  generatedFloors.push(generateFloor(20, 20, i));
+}
+export { generatedFloors };
+
 export const playerStartByFloor: { x: number; y: number }[] =
   generatedFloors.map((f) => f.playerStart);
 

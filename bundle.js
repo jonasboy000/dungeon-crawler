@@ -76,7 +76,7 @@
       () => Array(width).fill(1)
     );
     const rooms = [];
-    const numRooms = 6;
+    const numRooms = 7;
     let attempts = 0;
     while (rooms.length < numRooms && attempts < 200) {
       attempts++;
@@ -93,6 +93,28 @@
         for (let rx = x; rx < x + w; rx++)
           map[ry][rx] = 0;
       rooms.push({ x, y, w, h });
+    }
+    if (rooms.length >= 2) {
+      let maxDist = 0;
+      let farA = 0;
+      let farB = rooms.length - 1;
+      for (let i = 0; i < rooms.length; i++) {
+        for (let j = i + 1; j < rooms.length; j++) {
+          const dx = rooms[i].x + rooms[i].w / 2 - (rooms[j].x + rooms[j].w / 2);
+          const dy = rooms[i].y + rooms[i].h / 2 - (rooms[j].y + rooms[j].h / 2);
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist > maxDist) {
+            maxDist = dist;
+            farA = i;
+            farB = j;
+          }
+        }
+      }
+      [rooms[0], rooms[farA]] = [rooms[farA], rooms[0]];
+      [rooms[rooms.length - 1], rooms[farB]] = [
+        rooms[farB],
+        rooms[rooms.length - 1]
+      ];
     }
     for (let i = 0; i < rooms.length - 1; i++) {
       const a = rooms[i];
@@ -112,7 +134,7 @@
       x: Math.floor(first.x + first.w / 2),
       y: Math.floor(first.y + first.h / 2)
     };
-    const isLastFloor = floorNum === 4;
+    const isLastFloor = floorNum === 19;
     map[last.y + 1][last.x + 1] = isLastFloor ? 9 : 3;
     const middleRooms = rooms.slice(1, -1);
     const shuffledForChests = [...middleRooms].sort(() => Math.random() - 0.5);
@@ -127,14 +149,10 @@
     }));
     return { map, gruntPositions, playerStart };
   }
-  var generatedFloors = [
-    generateFloor(20, 20, 0),
-    generateFloor(20, 20, 1),
-    generateFloor(20, 20, 2),
-    generateFloor(20, 20, 3),
-    generateFloor(20, 20, 4),
-    generateFloor(20, 20, 5)
-  ];
+  var generatedFloors = [];
+  for (let i = 0; i < 20; i++) {
+    generatedFloors.push(generateFloor(20, 20, i));
+  }
   var playerStartByFloor = generatedFloors.map((f) => f.playerStart);
   var floors = generatedFloors.map((f) => f.map);
   var gruntSpawnsByFloor = generatedFloors.map((f) => f.gruntPositions);
