@@ -1,5 +1,12 @@
 import { Player } from "./player";
-import { floors, currentFloor, drawMap, nextFloor } from "./map";
+import {
+  floors,
+  gruntSpawnsByFloor,
+  currentFloor,
+  drawMap,
+  nextFloor,
+  playerStartByFloor,
+} from "./map";
 import { Grunt } from "./enemy";
 
 const canvas = document.getElementById("gameCanvas") as HTMLCanvasElement;
@@ -16,14 +23,21 @@ drawMap(ctx, floors[currentFloor]);
 let animationId: number = 0;
 let gameOver: boolean = false;
 
-const player = new Player(100, 10, 1, 1, 1, "down");
+const player = new Player(
+  100,
+  10,
+  playerStartByFloor[0].x,
+  playerStartByFloor[0].y,
+  1,
+  "down",
+);
 
 /* grunts per floor */
-const gruntsByFloor: Grunt[][] = [
-  [new Grunt(20, 10, 8, 12, 1), new Grunt(20, 10, 5, 5, 1)],
-  [new Grunt(30, 15, 3, 10, 1), new Grunt(30, 15, 12, 3, 1)],
-  [new Grunt(40, 20, 5, 5, 1), new Grunt(40, 20, 15, 15, 1)],
-];
+const gruntsByFloor: Grunt[][] = gruntSpawnsByFloor.map((spawns, floorNum) => {
+  const hp = 10 + floorNum * 10;
+  const damage = 5 + floorNum * 5;
+  return spawns.map((pos) => new Grunt(hp, damage, pos.x, pos.y, 1));
+});
 
 /* returns the grunts for the current floor */
 function currentGrunts(): Grunt[] {
@@ -143,8 +157,8 @@ document.addEventListener("keydown", (e) => {
 
   if (currentTile === 3) {
     nextFloor();
-    player.x = 1;
-    player.y = 1;
+    player.x = playerStartByFloor[currentFloor].x;
+    player.y = playerStartByFloor[currentFloor].y;
     addMessage("You descend to floor " + (currentFloor + 1));
   }
 

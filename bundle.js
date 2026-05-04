@@ -1,4 +1,432 @@
-"use strict";(()=>{var E={up:(()=>{let t=new Image;return t.src="images/player-back-facing.png",t})(),down:(()=>{let t=new Image;return t.src="images/player-front-facing.png",t})(),left:(()=>{let t=new Image;return t.src="images/player-left-facing.png",t})(),right:(()=>{let t=new Image;return t.src="images/player-right-facing.png",t})()},l=class{constructor(i,e,r,s,u,B){this.hp=i,this.damage=e,this.x=r,this.y=s,this.speed=u,this.direction="down"}draw(i,e){i.drawImage(E[this.direction],this.x*e,this.y*e,e,e)}attack(i){i.hp-=this.damage}openChest(){return Math.random()>.5?(this.hp+=20,"+20 HP!"):(this.damage+=2,"+2 damage!")}};var F=[[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,1,0,0,0,0,0,5,0,1,0,0,0,0,1],[1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1],[1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,5,0,0,1],[1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1],[1,0,0,0,0,0,2,0,0,0,0,0,0,0,1,0,0,0,0,1],[1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1],[1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1],[1,0,5,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1],[1,0,0,0,0,0,1,0,0,5,0,0,0,0,1,0,0,0,0,1],[1,0,0,0,0,0,2,0,0,0,0,0,0,0,1,0,0,0,0,1],[1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],G=[[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,1],[1,1,1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,5,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,2,1,1,1,1,1,1,1,2,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,2,0,0,0,5,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],L=[[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,5,0,1],[1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,2,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,1,1,1,1,2,1,1,1,1,1,1,1,2,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,5,0,0,1],[1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,0,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],o=[F,G,L],a=0,I=new Image,v=new Image,S=new Image,k=new Image,z=new Image,C=new Image;I.src="images/floor.png";v.src="images/walls.png";S.src="images/door.png";k.src="images/stairs.png";z.src="images/chest.png";C.src="images/exit-portal.png";function M(){a+=1}function p(t,i){for(let r=0;r<i.length;r++)for(let s=0;s<i[r].length;s++)switch(i[r][s]){case 0:t.drawImage(I,s*32,r*32,32,32);break;case 1:t.drawImage(v,s*32,r*32,32,32);break;case 2:t.drawImage(S,s*32,r*32,32,32);break;case 3:t.drawImage(k,s*32,r*32,32,32);break;case 5:t.drawImage(z,s*32,r*32,32,32);break;case 9:t.drawImage(C,s*32,r*32,32,32);break}}var H={up:(()=>{let t=new Image;return t.src="images/grunt-back-facing.png",t})(),down:(()=>{let t=new Image;return t.src="images/grunt-front-facing.png",t})(),left:(()=>{let t=new Image;return t.src="images/grunt-left-facing.png",t})(),right:(()=>{let t=new Image;return t.src="images/grunt-right-facing.png",t})()},m=class{constructor(i,e,r,s,u){this.alive=!0;this.hp=i,this.damage=e,this.x=r,this.y=s,this.speed=u,this.direction="down"}draw(i,e){i.drawImage(H[this.direction],this.x*e,this.y*e,e,e)}isAdjacentTo(i,e){return Math.abs(this.x-i)+Math.abs(this.y-e)===1}moveToward(i,e,r){let s=Math.abs(this.x-i)+Math.abs(this.y-e);s>5||s<=1||(i>this.x&&r[this.y][this.x+1]!==1&&!(this.x+1===i&&this.y===e)?(this.x+=1,this.direction="right"):i<this.x&&r[this.y][this.x-1]!==1&&!(this.x-1===i&&this.y===e)?(this.x-=1,this.direction="left"):e>this.y&&r[this.y+1][this.x]!==1&&!(this.x===i&&this.y+1===e)?(this.y+=1,this.direction="down"):e<this.y&&r[this.y-1][this.x]!==1&&!(this.x===i&&this.y-1===e)&&(this.y-=1,this.direction="up"))}};var d=document.getElementById("gameCanvas"),g=d.getContext("2d");d.width=640;d.height=640;g.fillStyle="black";g.fillRect(0,0,640,640);p(g,o[a]);var x=0,f=!1,n=new l(100,10,1,1,1,"down"),R=[[new m(20,10,8,12,1),new m(20,10,5,5,1)],[new m(30,15,3,10,1),new m(30,15,12,3,1)],[new m(40,20,5,5,1),new m(40,20,15,15,1)]];function b(){return R[a]}function y(){let t=document.getElementById("playerStats");t.querySelector("ul").innerHTML=`
-        <li>HP: ${n.hp}</li>
-        <li>damage: ${n.damage}</li>
-    `}y();function h(t,i,e){if(t[e][i]===1)return!1;for(let s of b())if(s.alive&&s.x===i&&s.y===e)return!1;return!0}function T(){let t=document.getElementById("messages");t.innerHTML=""}var A=0;function c(t){A++;let i=document.getElementById("messages"),e=document.createElement("li");e.textContent=A+". "+t,i.prepend(e),i.children.length>10&&i.removeChild(i.lastChild)}document.addEventListener("keydown",t=>{if(f)return;switch(t.key){case"ArrowUp":case"w":n.direction="up",h(o[a],n.x,n.y-n.speed)&&(n.y-=n.speed);break;case"ArrowDown":case"s":n.direction="down",h(o[a],n.x,n.y+n.speed)&&(n.y+=n.speed);break;case"ArrowLeft":case"a":n.direction="left",h(o[a],n.x-n.speed,n.y)&&(n.x-=n.speed);break;case"ArrowRight":case"d":n.direction="right",h(o[a],n.x+n.speed,n.y)&&(n.x+=n.speed);break;case" ":for(let e of b())if(e.alive&&e.isAdjacentTo(n.x,n.y)){e.hp-=n.damage,c("You attack for "+n.damage+" damage!"),e.hp<=0&&(e.alive=!1,e.x=-1,e.y=-1,c("Grunt defeated!"));break}break}for(let e of b())if(e.alive&&(e.moveToward(n.x,n.y,o[a]),e.isAdjacentTo(n.x,n.y)&&(n.hp-=e.damage,c("Grunt attacks for "+e.damage+" damage!"),y(),n.hp<=0))){f=!0,cancelAnimationFrame(x),w(),T(),c("You died! Game over.");return}let i=o[a][n.y][n.x];if(i===5){let e=n.openChest();o[a][n.y][n.x]=0,c("You opened a chest: "+e),y()}i===3&&(M(),n.x=1,n.y=1,c("You descend to floor "+(a+1))),i===9&&(f=!0,cancelAnimationFrame(x),w(),T(),c("Congratulations! You escaped the dungeon!"))});function w(){g.clearRect(0,0,d.width,d.height),p(g,o[a]);for(let t of b())t.alive&&t.draw(g,32);n.draw(g,32),f||(x=requestAnimationFrame(w))}w();})();
+"use strict";
+(() => {
+  // js/player.ts
+  var playerImages = {
+    up: (() => {
+      const img = new Image();
+      img.src = "images/player-back-facing.png";
+      return img;
+    })(),
+    down: (() => {
+      const img = new Image();
+      img.src = "images/player-front-facing.png";
+      return img;
+    })(),
+    left: (() => {
+      const img = new Image();
+      img.src = "images/player-left-facing.png";
+      return img;
+    })(),
+    right: (() => {
+      const img = new Image();
+      img.src = "images/player-right-facing.png";
+      return img;
+    })()
+  };
+  var Player = class {
+    constructor(hp, damage, x, y, speed, direction) {
+      this.hp = hp;
+      this.damage = damage;
+      this.x = x;
+      this.y = y;
+      this.speed = speed;
+      this.direction = "down";
+    }
+    draw(ctx2, tileSize) {
+      ctx2.drawImage(
+        playerImages[this.direction],
+        this.x * tileSize,
+        this.y * tileSize,
+        tileSize,
+        tileSize
+      );
+    }
+    attack(grunt) {
+      grunt.hp -= this.damage;
+    }
+    openChest() {
+      if (Math.random() > 0.5) {
+        this.hp += 20;
+        let reward = "+20 HP!";
+        return reward;
+      } else {
+        this.damage += 2;
+        let reward = "+2 damage!";
+        return reward;
+      }
+    }
+  };
+
+  // js/map.ts
+  var floorImg = new Image();
+  var wallImg = new Image();
+  var doorImg = new Image();
+  var stairsImg = new Image();
+  var chestImg = new Image();
+  var exitImg = new Image();
+  floorImg.src = "images/floor.png";
+  wallImg.src = "images/walls.png";
+  doorImg.src = "images/door.png";
+  stairsImg.src = "images/stairs.png";
+  chestImg.src = "images/chest.png";
+  exitImg.src = "images/exit-portal.png";
+  function generateFloor(width, height, floorNum) {
+    const map = Array.from(
+      { length: height },
+      () => Array(width).fill(1)
+    );
+    const rooms = [];
+    const numRooms = 6;
+    let attempts = 0;
+    while (rooms.length < numRooms && attempts < 200) {
+      attempts++;
+      const w = Math.floor(Math.random() * 4) + 3;
+      const h = Math.floor(Math.random() * 4) + 3;
+      const x = Math.floor(Math.random() * (width - w - 2)) + 1;
+      const y = Math.floor(Math.random() * (height - h - 2)) + 1;
+      const overlaps = rooms.some(
+        (r) => x < r.x + r.w + 1 && x + w + 1 > r.x && y < r.y + r.h + 1 && y + h + 1 > r.y
+      );
+      if (overlaps)
+        continue;
+      for (let ry = y; ry < y + h; ry++)
+        for (let rx = x; rx < x + w; rx++)
+          map[ry][rx] = 0;
+      rooms.push({ x, y, w, h });
+    }
+    for (let i = 0; i < rooms.length - 1; i++) {
+      const a = rooms[i];
+      const b = rooms[i + 1];
+      const ax = Math.floor(a.x + a.w / 2);
+      const ay = Math.floor(a.y + a.h / 2);
+      const bx = Math.floor(b.x + b.w / 2);
+      const by = Math.floor(b.y + b.h / 2);
+      for (let x = Math.min(ax, bx); x <= Math.max(ax, bx); x++)
+        map[ay][x] = 0;
+      for (let y = Math.min(ay, by); y <= Math.max(ay, by); y++)
+        map[y][bx] = 0;
+    }
+    const first = rooms[0];
+    const last = rooms[rooms.length - 1];
+    const playerStart = {
+      x: Math.floor(first.x + first.w / 2),
+      y: Math.floor(first.y + first.h / 2)
+    };
+    const isLastFloor = floorNum === 4;
+    map[last.y + 1][last.x + 1] = isLastFloor ? 9 : 3;
+    const middleRooms = rooms.slice(1, -1);
+    const shuffledForChests = [...middleRooms].sort(() => Math.random() - 0.5);
+    for (let i = 0; i < Math.min(5, shuffledForChests.length); i++) {
+      const r = shuffledForChests[i];
+      map[r.y + 1][r.x + 2] = 5;
+    }
+    const shuffledForGrunts = [...middleRooms].sort(() => Math.random() - 0.5);
+    const gruntPositions = shuffledForGrunts.slice(0, 3).map((r) => ({
+      x: Math.floor(r.x + r.w / 2),
+      y: Math.floor(r.y + r.h / 2)
+    }));
+    return { map, gruntPositions, playerStart };
+  }
+  var generatedFloors = [
+    generateFloor(20, 20, 0),
+    generateFloor(20, 20, 1),
+    generateFloor(20, 20, 2),
+    generateFloor(20, 20, 3),
+    generateFloor(20, 20, 4),
+    generateFloor(20, 20, 5)
+  ];
+  var playerStartByFloor = generatedFloors.map((f) => f.playerStart);
+  var floors = generatedFloors.map((f) => f.map);
+  var gruntSpawnsByFloor = generatedFloors.map((f) => f.gruntPositions);
+  var currentFloor = 0;
+  function nextFloor() {
+    currentFloor += 1;
+  }
+  function drawMap(ctx2, map) {
+    const tileSize = 32;
+    for (let row = 0; row < map.length; row++) {
+      for (let col = 0; col < map[row].length; col++) {
+        const tile = map[row][col];
+        switch (tile) {
+          case 0:
+            ctx2.drawImage(
+              floorImg,
+              col * tileSize,
+              row * tileSize,
+              tileSize,
+              tileSize
+            );
+            break;
+          case 1:
+            ctx2.drawImage(
+              wallImg,
+              col * tileSize,
+              row * tileSize,
+              tileSize,
+              tileSize
+            );
+            break;
+          case 2:
+            ctx2.drawImage(
+              doorImg,
+              col * tileSize,
+              row * tileSize,
+              tileSize,
+              tileSize
+            );
+            break;
+          case 3:
+            ctx2.drawImage(
+              stairsImg,
+              col * tileSize,
+              row * tileSize,
+              tileSize,
+              tileSize
+            );
+            break;
+          case 5:
+            ctx2.drawImage(
+              chestImg,
+              col * tileSize,
+              row * tileSize,
+              tileSize,
+              tileSize
+            );
+            break;
+          case 9:
+            ctx2.drawImage(
+              exitImg,
+              col * tileSize,
+              row * tileSize,
+              tileSize,
+              tileSize
+            );
+            break;
+        }
+      }
+    }
+  }
+
+  // js/enemy.ts
+  var gruntImages = {
+    up: (() => {
+      const img = new Image();
+      img.src = "images/grunt-back-facing.png";
+      return img;
+    })(),
+    down: (() => {
+      const img = new Image();
+      img.src = "images/grunt-front-facing.png";
+      return img;
+    })(),
+    left: (() => {
+      const img = new Image();
+      img.src = "images/grunt-left-facing.png";
+      return img;
+    })(),
+    right: (() => {
+      const img = new Image();
+      img.src = "images/grunt-right-facing.png";
+      return img;
+    })()
+  };
+  var Grunt = class {
+    constructor(hp, damage, x, y, speed) {
+      this.alive = true;
+      this.hp = hp;
+      this.damage = damage;
+      this.x = x;
+      this.y = y;
+      this.speed = speed;
+      this.direction = "down";
+    }
+    draw(ctx2, tileSize) {
+      ctx2.drawImage(
+        gruntImages[this.direction],
+        this.x * tileSize,
+        this.y * tileSize,
+        tileSize,
+        tileSize
+      );
+    }
+    isAdjacentTo(playerX, playerY) {
+      return Math.abs(this.x - playerX) + Math.abs(this.y - playerY) === 1;
+    }
+    moveToward(playerX, playerY, map) {
+      const distance = Math.abs(this.x - playerX) + Math.abs(this.y - playerY);
+      if (distance > 5)
+        return;
+      if (distance <= 1)
+        return;
+      if (playerX > this.x && map[this.y][this.x + 1] !== 1 && !(this.x + 1 === playerX && this.y === playerY)) {
+        this.x += 1;
+        this.direction = "right";
+      } else if (playerX < this.x && map[this.y][this.x - 1] !== 1 && !(this.x - 1 === playerX && this.y === playerY)) {
+        this.x -= 1;
+        this.direction = "left";
+      } else if (playerY > this.y && map[this.y + 1][this.x] !== 1 && !(this.x === playerX && this.y + 1 === playerY)) {
+        this.y += 1;
+        this.direction = "down";
+      } else if (playerY < this.y && map[this.y - 1][this.x] !== 1 && !(this.x === playerX && this.y - 1 === playerY)) {
+        this.y -= 1;
+        this.direction = "up";
+      }
+    }
+  };
+
+  // js/game.ts
+  var canvas = document.getElementById("gameCanvas");
+  var ctx = canvas.getContext("2d");
+  canvas.width = 640;
+  canvas.height = 640;
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 0, 640, 640);
+  drawMap(ctx, floors[currentFloor]);
+  var animationId = 0;
+  var gameOver = false;
+  var player = new Player(
+    100,
+    10,
+    playerStartByFloor[0].x,
+    playerStartByFloor[0].y,
+    1,
+    "down"
+  );
+  var gruntsByFloor = gruntSpawnsByFloor.map((spawns, floorNum) => {
+    const hp = 10 + floorNum * 10;
+    const damage = 5 + floorNum * 5;
+    return spawns.map((pos) => new Grunt(hp, damage, pos.x, pos.y, 1));
+  });
+  function currentGrunts() {
+    return gruntsByFloor[currentFloor];
+  }
+  function updateStats() {
+    const stats = document.getElementById("playerStats");
+    stats.querySelector("ul").innerHTML = `
+        <li>HP: ${player.hp}</li>
+        <li>damage: ${player.damage}</li>
+    `;
+  }
+  updateStats();
+  function canMove(map, newX, newY) {
+    const tile = map[newY][newX];
+    if (tile === 1)
+      return false;
+    for (const grunt of currentGrunts()) {
+      if (grunt.alive && grunt.x === newX && grunt.y === newY)
+        return false;
+    }
+    return true;
+  }
+  function clearMessages() {
+    const messages = document.getElementById("messages");
+    messages.innerHTML = "";
+  }
+  var messageCount = 0;
+  function addMessage(text) {
+    messageCount++;
+    const messages = document.getElementById("messages");
+    const msg = document.createElement("li");
+    msg.textContent = messageCount + ". " + text;
+    messages.prepend(msg);
+    if (messages.children.length > 10) {
+      messages.removeChild(messages.lastChild);
+    }
+  }
+  document.addEventListener("keydown", (e) => {
+    if (gameOver)
+      return;
+    switch (e.key) {
+      case "ArrowUp":
+      case "w":
+        player.direction = "up";
+        if (canMove(floors[currentFloor], player.x, player.y - player.speed))
+          player.y -= player.speed;
+        break;
+      case "ArrowDown":
+      case "s":
+        player.direction = "down";
+        if (canMove(floors[currentFloor], player.x, player.y + player.speed))
+          player.y += player.speed;
+        break;
+      case "ArrowLeft":
+      case "a":
+        player.direction = "left";
+        if (canMove(floors[currentFloor], player.x - player.speed, player.y))
+          player.x -= player.speed;
+        break;
+      case "ArrowRight":
+      case "d":
+        player.direction = "right";
+        if (canMove(floors[currentFloor], player.x + player.speed, player.y))
+          player.x += player.speed;
+        break;
+      case " ":
+        for (const grunt of currentGrunts()) {
+          if (grunt.alive && grunt.isAdjacentTo(player.x, player.y)) {
+            grunt.hp -= player.damage;
+            addMessage("You attack for " + player.damage + " damage!");
+            if (grunt.hp <= 0) {
+              grunt.alive = false;
+              grunt.x = -1;
+              grunt.y = -1;
+              addMessage("Grunt defeated!");
+            }
+            break;
+          }
+        }
+        break;
+    }
+    for (const grunt of currentGrunts()) {
+      if (!grunt.alive)
+        continue;
+      grunt.moveToward(player.x, player.y, floors[currentFloor]);
+      if (grunt.isAdjacentTo(player.x, player.y)) {
+        player.hp -= grunt.damage;
+        addMessage("Grunt attacks for " + grunt.damage + " damage!");
+        updateStats();
+        if (player.hp <= 0) {
+          gameOver = true;
+          cancelAnimationFrame(animationId);
+          gameLoop();
+          clearMessages();
+          addMessage("You died! Game over.");
+          return;
+        }
+      }
+    }
+    const currentTile = floors[currentFloor][player.y][player.x];
+    if (currentTile === 5) {
+      const reward = player.openChest();
+      floors[currentFloor][player.y][player.x] = 0;
+      addMessage("You opened a chest: " + reward);
+      updateStats();
+    }
+    if (currentTile === 3) {
+      nextFloor();
+      player.x = playerStartByFloor[currentFloor].x;
+      player.y = playerStartByFloor[currentFloor].y;
+      addMessage("You descend to floor " + (currentFloor + 1));
+    }
+    if (currentTile === 9) {
+      gameOver = true;
+      cancelAnimationFrame(animationId);
+      gameLoop();
+      clearMessages();
+      addMessage("Congratulations! You escaped the dungeon!");
+    }
+  });
+  function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawMap(ctx, floors[currentFloor]);
+    for (const grunt of currentGrunts()) {
+      if (grunt.alive)
+        grunt.draw(ctx, 32);
+    }
+    player.draw(ctx, 32);
+    if (!gameOver) {
+      animationId = requestAnimationFrame(gameLoop);
+    }
+  }
+  gameLoop();
+})();

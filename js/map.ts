@@ -3,130 +3,187 @@
 0 = floor, 1 = wall, 2 = door, 3 = staircase, 5 = chest, 
 9 = end, 
 */
-export const floor1: number[][] = [
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 5, 0, 1, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 5, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-  [1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-  [1, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-];
-export const floor2: number[][] = [
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1],
-  [1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 5, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-];
-export const floor3: number[][] = [
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 1],
-  [1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-];
 
-// array containing all floors, indexed by floor number
-export const floors: number[][][] = [floor1, floor2, floor3];
+const floorImg = new Image();
+const wallImg = new Image();
+const doorImg = new Image();
+const stairsImg = new Image();
+const chestImg = new Image();
+const exitImg = new Image();
 
-// keeps track of which floor the player is currently on
+floorImg.src = "images/floor.png";
+wallImg.src = "images/walls.png";
+doorImg.src = "images/door.png";
+stairsImg.src = "images/stairs.png";
+chestImg.src = "images/chest.png";
+exitImg.src = "images/exit-portal.png";
+
+function generateFloor(
+  width: number,
+  height: number,
+  floorNum: number,
+): {
+  map: number[][];
+  gruntPositions: { x: number; y: number }[];
+  playerStart: { x: number; y: number };
+} {
+  const map: number[][] = Array.from({ length: height }, () =>
+    Array(width).fill(1),
+  );
+  const rooms: { x: number; y: number; w: number; h: number }[] = [];
+  const numRooms = 6;
+
+  // ── place rooms ──
+  let attempts = 0;
+  while (rooms.length < numRooms && attempts < 200) {
+    attempts++;
+    const w = Math.floor(Math.random() * 4) + 3;
+    const h = Math.floor(Math.random() * 4) + 3;
+    const x = Math.floor(Math.random() * (width - w - 2)) + 1;
+    const y = Math.floor(Math.random() * (height - h - 2)) + 1;
+
+    const overlaps = rooms.some(
+      (r) =>
+        x < r.x + r.w + 1 &&
+        x + w + 1 > r.x &&
+        y < r.y + r.h + 1 &&
+        y + h + 1 > r.y,
+    );
+    if (overlaps) continue;
+
+    for (let ry = y; ry < y + h; ry++)
+      for (let rx = x; rx < x + w; rx++) map[ry][rx] = 0;
+
+    rooms.push({ x, y, w, h });
+  }
+
+  // ── connect rooms with corridors ──
+  for (let i = 0; i < rooms.length - 1; i++) {
+    const a = rooms[i];
+    const b = rooms[i + 1];
+    const ax = Math.floor(a.x + a.w / 2);
+    const ay = Math.floor(a.y + a.h / 2);
+    const bx = Math.floor(b.x + b.w / 2);
+    const by = Math.floor(b.y + b.h / 2);
+
+    for (let x = Math.min(ax, bx); x <= Math.max(ax, bx); x++) map[ay][x] = 0;
+    for (let y = Math.min(ay, by); y <= Math.max(ay, by); y++) map[y][bx] = 0;
+    // ── place doors at corridor entrances ──
+  }
+
+  // ── first and last rooms ──
+  const first = rooms[0];
+  const last = rooms[rooms.length - 1];
+
+  // ── player start in first room centre ──
+  const playerStart = {
+    x: Math.floor(first.x + first.w / 2),
+    y: Math.floor(first.y + first.h / 2),
+  };
+
+  // ── stairs in last room ──
+  const isLastFloor = floorNum === 4;
+  map[last.y + 1][last.x + 1] = isLastFloor ? 9 : 3;
+
+  // ── 5 chests in random middle rooms ──
+  const middleRooms = rooms.slice(1, -1);
+  const shuffledForChests = [...middleRooms].sort(() => Math.random() - 0.5);
+  for (let i = 0; i < Math.min(5, shuffledForChests.length); i++) {
+    const r = shuffledForChests[i];
+    map[r.y + 1][r.x + 2] = 5;
+  }
+
+  // ── 3 grunt positions in random middle rooms ──
+  const shuffledForGrunts = [...middleRooms].sort(() => Math.random() - 0.5);
+  const gruntPositions = shuffledForGrunts.slice(0, 3).map((r) => ({
+    x: Math.floor(r.x + r.w / 2),
+    y: Math.floor(r.y + r.h / 2),
+  }));
+
+  return { map, gruntPositions, playerStart };
+}
+
+export const generatedFloors = [
+  generateFloor(20, 20, 0),
+  generateFloor(20, 20, 1),
+  generateFloor(20, 20, 2),
+  generateFloor(20, 20, 3),
+  generateFloor(20, 20, 4),
+  generateFloor(20, 20, 5),
+];
+export const playerStartByFloor: { x: number; y: number }[] =
+  generatedFloors.map((f) => f.playerStart);
+
+export const floors: number[][][] = generatedFloors.map((f) => f.map);
+export const gruntSpawnsByFloor: { x: number; y: number }[][] =
+  generatedFloors.map((f) => f.gruntPositions);
+
 export let currentFloor: number = 0;
-// tile images
-const floorImg = new Image()
-const wallImg = new Image()
-const doorImg = new Image()
-const stairsImg = new Image()
-const chestImg = new Image()
-const exitImg = new Image()
 
-floorImg.src = "images/floor.png"
-wallImg.src = "images/walls.png"
-doorImg.src = "images/door.png"
-stairsImg.src = "images/stairs.png"
-chestImg.src = "images/chest.png"
-exitImg.src = "images/exit-portal.png"
-
-/*
-export                         : makes it available to other files
-ctx: CanvasRenderingContext2D(): create an object ctx of this type
-map: number[][]                : create an object map of this type
-void                           : this function does not return anything
-*/
 export function nextFloor(): void {
   currentFloor += 1;
 }
-export function drawMap(ctx: CanvasRenderingContext2D, map: number[][]): void {
-  /*define how many pixels each tile is*/
-  const tileSize = 32;
 
-  /*draw the map by looping over every row, inside every row loop
-   loop over every collumn*/
+export function drawMap(ctx: CanvasRenderingContext2D, map: number[][]): void {
+  const tileSize = 32;
   for (let row = 0; row < map.length; row++) {
     for (let col = 0; col < map[row].length; col++) {
       const tile = map[row][col];
       switch (tile) {
-        case 0: // floor
-          ctx.drawImage(floorImg, col * tileSize, row * tileSize, tileSize, tileSize)
-    break
-        case 1: // wall
-          ctx.drawImage(wallImg, col * tileSize, row * tileSize, tileSize, tileSize)
-    break
-        case 2: // door
-          ctx.drawImage(doorImg, col * tileSize, row * tileSize, tileSize, tileSize)
-    break
-        case 3: // staircase
-          ctx.drawImage(stairsImg, col * tileSize, row * tileSize, tileSize, tileSize)
-    break
-        case 5: // chest
-          ctx.drawImage(chestImg, col * tileSize, row * tileSize, tileSize, tileSize)
-    break
-        case 9: // end
-          ctx.drawImage(exitImg, col * tileSize, row * tileSize, tileSize, tileSize)
-        break;
+        case 0:
+          ctx.drawImage(
+            floorImg,
+            col * tileSize,
+            row * tileSize,
+            tileSize,
+            tileSize,
+          );
+          break;
+        case 1:
+          ctx.drawImage(
+            wallImg,
+            col * tileSize,
+            row * tileSize,
+            tileSize,
+            tileSize,
+          );
+          break;
+        case 2:
+          ctx.drawImage(
+            doorImg,
+            col * tileSize,
+            row * tileSize,
+            tileSize,
+            tileSize,
+          );
+          break;
+        case 3:
+          ctx.drawImage(
+            stairsImg,
+            col * tileSize,
+            row * tileSize,
+            tileSize,
+            tileSize,
+          );
+          break;
+        case 5:
+          ctx.drawImage(
+            chestImg,
+            col * tileSize,
+            row * tileSize,
+            tileSize,
+            tileSize,
+          );
+          break;
+        case 9:
+          ctx.drawImage(
+            exitImg,
+            col * tileSize,
+            row * tileSize,
+            tileSize,
+            tileSize,
+          );
+          break;
       }
     }
   }
