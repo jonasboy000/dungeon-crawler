@@ -58,3 +58,11 @@ body main {
 #playerStats ul li{
   margin-bottom: 1rem;
 }
+
+#controls{
+  margin-bottom: 1rem;
+  border-bottom: #454343 1px solid;
+}
+#controls h3{
+  color: #37ff00;
+}
