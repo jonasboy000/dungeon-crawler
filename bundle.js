@@ -318,6 +318,22 @@
   function currentGrunts() {
     return gruntsByFloor[currentFloor];
   }
+  function drawVision(ctx2, playerX, playerY, radius, tileSize) {
+    const cx = (playerX + 0.5) * tileSize;
+    const cy = (playerY + 0.5) * tileSize;
+    const visionRadius = radius * tileSize;
+    const fogCanvas = document.createElement("canvas");
+    fogCanvas.width = canvas.width;
+    fogCanvas.height = canvas.height;
+    const fogCtx = fogCanvas.getContext("2d");
+    fogCtx.fillStyle = "rgba(0, 0, 0, 0.95)";
+    fogCtx.fillRect(0, 0, canvas.width, canvas.height);
+    fogCtx.globalCompositeOperation = "destination-out";
+    fogCtx.beginPath();
+    fogCtx.arc(cx, cy, visionRadius, 0, Math.PI * 2);
+    fogCtx.fill();
+    ctx2.drawImage(fogCanvas, 0, 0);
+  }
   function updateStats() {
     const stats = document.getElementById("playerStats");
     stats.querySelector("ul").innerHTML = `
@@ -442,6 +458,7 @@
         grunt.draw(ctx, 32);
     }
     player.draw(ctx, 32);
+    drawVision(ctx, player.x, player.y, 5, 32);
     if (!gameOver) {
       animationId = requestAnimationFrame(gameLoop);
     }

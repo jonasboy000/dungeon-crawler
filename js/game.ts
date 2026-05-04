@@ -44,6 +44,30 @@ function currentGrunts(): Grunt[] {
   return gruntsByFloor[currentFloor];
 }
 
+function drawVision(ctx: CanvasRenderingContext2D, playerX: number, playerY: number, radius: number, tileSize: number) {
+  const cx = (playerX + 0.5) * tileSize;
+  const cy = (playerY + 0.5) * tileSize;
+  const visionRadius = radius * tileSize;
+
+  // create offscreen canvas for the fog
+  const fogCanvas = document.createElement("canvas");
+  fogCanvas.width = canvas.width;
+  fogCanvas.height = canvas.height;
+  const fogCtx = fogCanvas.getContext("2d")!;
+
+  // fill entirely black
+  fogCtx.fillStyle = "rgba(0, 0, 0, 0.95)";
+  fogCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // punch transparent hole
+  fogCtx.globalCompositeOperation = "destination-out";
+  fogCtx.beginPath();
+  fogCtx.arc(cx, cy, visionRadius, 0, Math.PI * 2);
+  fogCtx.fill();
+
+  // draw fog onto main canvas
+  ctx.drawImage(fogCanvas, 0, 0);
+}
 function updateStats(): void {
   const stats = document.getElementById("playerStats")!;
   stats.querySelector("ul")!.innerHTML = `
@@ -178,6 +202,7 @@ function gameLoop(): void {
     if (grunt.alive) grunt.draw(ctx, 32);
   }
   player.draw(ctx, 32);
+  drawVision(ctx, player.x, player.y, 5, 32); // 7 tile radius
   if (!gameOver) {
     animationId = requestAnimationFrame(gameLoop);
   }
