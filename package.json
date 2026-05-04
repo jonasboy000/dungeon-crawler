@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "esbuild js/game.ts --bundle --outfile=bundle.js --watch",
+    "build": "esbuild js/game.ts --bundle --outfile=bundle.js --minify"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.0",
+    "typescript": "^5.4.5"
+  }
+}

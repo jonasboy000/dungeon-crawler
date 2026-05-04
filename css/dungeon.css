@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+body main {
+  display: flex;
+  gap: 1rem;
+}
+
+#gameCanvas {
+  display: block;
+  border: 2px solid #333;
+}
+#messageBox {
+  width: 200px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  color: white;
+  font-family: monospace;
+}
+
+#messageBox h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #37ff00;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+#messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+
+#playerStats ul {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: #454343 1px solid;
+}
+
+#playerStats ul li{
+  margin-bottom: 1rem;
+}
